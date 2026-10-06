@@ -209,9 +209,24 @@ a:hover>.go{transform:translateX(3px)}
 .page-title small{letter-spacing:.17em;font-size:12px;opacity:.85}
 .page-title h1{font-size:clamp(28px,4vw,46px);line-height:1.12;margin:6px 0;font-weight:900;letter-spacing:-.02em}
 .content{max-width:1100px;min-height:350px;margin:auto;padding:45px 24px;line-height:1.65}
-.content h2,.content h3,.content h4{color:var(--navy);line-height:1.3}
-.content a{color:var(--blue);text-decoration:underline}
+.content:not(.el) :is(h2,h3,h4){color:var(--navy);line-height:1.3}
+.content:not(.el) a{color:var(--blue);text-decoration:underline}
 .content img{height:auto;display:inline-block}
+/* Tipografía base del tema Astra en vivo, solo para el contenido de Elementor */
+.el{font-family:"DM Sans",sans-serif;font-size:16px;line-height:1.7em;color:#4b4f58}
+.el :where(h1,h2,h3,h4,h5,h6){font-family:"DM Sans",sans-serif;font-weight:400;color:#3a3a3a;text-transform:none}
+.el :where(h1){font-size:64px;line-height:1.4em}
+.el :where(h2){font-size:30px;line-height:1.3em}
+.el :where(h3){font-size:20px;line-height:1.3em}
+.el :where(h4){font-size:35px;line-height:1.25em;font-family:Forum,serif}
+.el :where(h5){font-size:18px;line-height:1.2em}
+.el :where(h6){font-size:15px;line-height:1.25em}
+.el :where(a){color:#0170b9}
+.el :where(p){margin:0 0 1.6em}
+@media(max-width:921px){.el :where(h1){font-size:30px}.el :where(h2){font-size:25px}}
+.pdf-embed{display:flex;flex-direction:column;gap:8px}
+.pdf-embed iframe{width:100%;height:520px;border:1px solid var(--line);border-radius:8px;background:#f4f6f9}
+.pdf-embed a{font-size:14px}
 .content table{width:100%;border-collapse:collapse;display:block;overflow:auto}
 .content th{background:var(--blue);color:#fff}
 .content th,.content td{padding:11px;border:1px solid var(--line);min-width:120px}
