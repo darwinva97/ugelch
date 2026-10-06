@@ -35,4 +35,24 @@
       v.replaceChildren(f);
     };
   });
+
+  // Animaciones de entrada de Elementor: igual que en el sitio en vivo, el elemento
+  // aparece con su animación cuando entra en pantalla
+  const hidden = document.querySelectorAll(".elementor-invisible[data-settings]");
+  const reveal = el => {
+    let st = {};
+    try { st = JSON.parse(el.dataset.settings); } catch (e) {}
+    setTimeout(() => {
+      el.classList.remove("elementor-invisible");
+      if (st._animation) el.classList.add("animated", st._animation);
+    }, +st._animation_delay || 0);
+  };
+  if (hidden.length) {
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { io.unobserve(e.target); reveal(e.target); }
+      }));
+      hidden.forEach(el => io.observe(el));
+    } else hidden.forEach(reveal);
+  }
 })();
