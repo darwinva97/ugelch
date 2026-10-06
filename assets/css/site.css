@@ -117,7 +117,9 @@ svg{flex:none}
 
 /* ---------- Carrusel ---------- */
 .hero{position:relative;overflow:hidden;background:#f4f7fc}
-.hero-track{display:flex;transition:transform .7s var(--ease)}
+.hero-track{display:flex;transition:transform .7s var(--ease);touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.hero-track.dragging{transition:none;cursor:grabbing}
+.hero-track img{-webkit-user-drag:none}
 .hero-slide{min-width:100%;height:clamp(300px,30vw,420px);position:relative;overflow:hidden}
 .hero-main{background:
   radial-gradient(circle at 1px 1px,#c9d6ea 1.2px,transparent 1.6px) 0 40%/14px 14px no-repeat,
@@ -405,3 +407,11 @@ a:hover>.go{transform:translateX(3px)}
 /* Ningún icono, imagen o medio del contenido supera el ancho disponible */
 @media(max-width:767px){.el :is(.elementor-icon,.elementor-icon svg,img,svg,iframe,video){max-width:100%}.el .elementor-icon svg{height:auto}}
 @media(max-width:340px){.card-head h2{font-size:18px}.badge{width:38px;height:38px}.wrap{width:calc(100% - 24px)}}
+/* Móvil en horizontal: el hero no ocupa toda la pantalla */
+@media(orientation:landscape) and (max-height:500px){
+  .hero-slide{height:min(300px,70vh)}
+  .hero h1{font-size:clamp(24px,3.2vw,32px);margin:8px 0 4px}
+  .hero-copy p{margin-bottom:12px;font-size:15px}
+  .btn-hero{height:42px;font-size:15px}
+  .hero-tag{font-size:13px}
+}
