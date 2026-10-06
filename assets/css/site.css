@@ -380,8 +380,8 @@ a:hover>.go{transform:translateX(3px)}
   .topbar .wrap{height:52px}
   .gov{height:36px}
   .intranet span{display:none}
-  .intranet{width:40px;padding:0;justify-content:center}
-  .intranet{height:36px;padding:0 12px}
+  .intranet{width:40px;height:40px;padding:0;gap:0;justify-content:center}
+  .intranet .ic{width:20px;height:20px}
   .mainnav .wrap{height:68px}
   .nav-links{top:68px}
   .logo b{font-size:18px}
