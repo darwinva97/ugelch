@@ -69,7 +69,7 @@
     v.querySelector(".video-play").onclick = () => {
       const f = document.createElement("iframe");
       f.src = "https://www.youtube-nocookie.com/embed/" + v.dataset.video + "?autoplay=1&rel=0";
-      f.title = "Directromes - Fundación Romero";
+      f.title = v.dataset.title || "Video";
       f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
       f.allowFullscreen = true;
       v.replaceChildren(f);

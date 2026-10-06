@@ -146,12 +146,12 @@ svg{flex:none}
    carrusel mida lo mismo que la imagen sin tapar el texto central de los avisos */
 .hero{position:relative}
 .hero-dots{position:absolute;right:16px;bottom:12px;z-index:2;display:flex;gap:2px;padding:2px 6px;border-radius:999px;background:rgba(255,255,255,.82);box-shadow:0 1px 4px rgba(0,0,0,.15)}
-.hero-dots button{width:22px;height:22px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.hero-dots button{width:24px;height:24px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
 .hero-dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:#7d8ca6;transition:background-color .2s,transform .2s var(--ease)}
 .hero-dots button[aria-selected=true]::before{background:var(--blue);transform:scale(1.15)}
 
 /* ---------- Tarjetas ---------- */
-.home{padding:20px 0 28px;display:grid;gap:20px}
+.home-cards{padding:20px 0 28px;display:grid;gap:20px}
 .row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
 .row-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}
@@ -420,4 +420,4 @@ a:hover>.go{transform:translateX(3px)}
   .btn-hero{height:42px;font-size:15px}
   .hero-tag{font-size:13px}
 }
-@media(max-width:760px){.hero-dots{right:8px;bottom:6px;padding:0 4px}.hero-dots button{width:20px;height:20px}}
+@media(max-width:760px){.hero-dots{right:6px;bottom:4px;padding:0 4px}}
