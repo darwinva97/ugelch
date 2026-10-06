@@ -56,3 +56,14 @@
     } else hidden.forEach(reveal);
   }
 })();
+
+// Iframes pesados (Google Maps): se cargan solo cuando llegan a la pantalla
+(function(){
+  const frames = document.querySelectorAll("iframe[data-src]");
+  const load = f => { f.src = f.dataset.src; f.removeAttribute("data-src"); };
+  if (!("IntersectionObserver" in window)) return frames.forEach(load);
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { io.unobserve(e.target); load(e.target); }
+  }), { rootMargin: "200px 0px" });
+  frames.forEach(f => io.observe(f));
+})();
