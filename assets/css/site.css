@@ -120,7 +120,9 @@ svg{flex:none}
 .hero-track{display:flex;transition:transform .7s var(--ease);touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .hero-track.dragging{transition:none;cursor:grabbing}
 .hero-track img{-webkit-user-drag:none}
-.hero-slide{min-width:100%;height:clamp(300px,30vw,420px);position:relative;overflow:hidden}
+.hero-track{transition:transform .7s var(--ease),height .45s var(--ease)}
+/* Las diapositivas tienen la proporción de los avisos (2560×981): se ven completos */
+.hero-slide{min-width:100%;aspect-ratio:2560/981;position:relative;overflow:hidden}
 .hero-main{background:
   radial-gradient(circle at 1px 1px,#c9d6ea 1.2px,transparent 1.6px) 0 40%/14px 14px no-repeat,
   linear-gradient(180deg,#f7f9fd 0%,#eef3fb 100%)}
@@ -138,10 +140,10 @@ svg{flex:none}
 .btn-hero:hover{background:var(--navy)}
 .btn-hero .ic{width:22px;height:22px}
 .hero-art{width:100%;height:100%;max-height:100%;object-fit:contain;object-position:right bottom;mix-blend-mode:multiply;align-self:end;padding:20px 5% 0 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%),linear-gradient(180deg,transparent,#000 10%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8%),linear-gradient(180deg,transparent,#000 10%);mask-composite:intersect}
-.hero-img{background-size:cover;background-position:center}
-.hero-img::before{content:"";position:absolute;inset:-30px;background:inherit;filter:blur(22px) saturate(1.1);opacity:.85}
-.hero-img img{position:relative;width:100%;height:100%;object-fit:contain}
-.hero-dots{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:6px;z-index:2}
+.hero-img{background:#fff}
+.hero-img img{width:100%;height:100%;object-fit:contain;object-position:center}
+/* Los puntos van debajo de la imagen para no tapar el contenido de los avisos */
+.hero-dots{display:flex;justify-content:center;gap:6px;padding:6px 0;background:#fff}
 .hero-dots button{width:22px;height:22px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
 .hero-dots button::before{content:"";width:8px;height:8px;border-radius:50%;background:#7d8ca6;transition:background-color .2s,transform .2s var(--ease)}
 .hero-dots button[aria-selected=true]::before{background:var(--blue);transform:scale(1.15)}
@@ -384,12 +386,14 @@ a:hover>.go{transform:translateX(3px)}
   .nav-links{top:68px}
   .logo b{font-size:18px}
   .logo-badge{width:46px;height:46px}
+  .hero-track{align-items:flex-start}
   .hero-slide{height:auto}
+  .hero-main{aspect-ratio:auto}
   .hero-main .hero-inner{grid-template-columns:1fr;padding:28px 0 36px;gap:8px}
   .hero-copy{padding:0}
   .hero-art{max-height:170px;padding:0}
   .hero-main::after{display:none}
-  .hero-img{aspect-ratio:2.6}
+  .hero-img{aspect-ratio:2560/981}
   .row-3,.row-2,.news-grid,.loc{grid-template-columns:1fr}
   .loc-map{min-height:220px}
   .video{aspect-ratio:16/9;min-height:0}
@@ -409,7 +413,6 @@ a:hover>.go{transform:translateX(3px)}
 @media(max-width:340px){.card-head h2{font-size:18px}.badge{width:38px;height:38px}.wrap{width:calc(100% - 24px)}}
 /* Móvil en horizontal: el hero no ocupa toda la pantalla */
 @media(orientation:landscape) and (max-height:500px){
-  .hero-slide{height:min(300px,70vh)}
   .hero h1{font-size:clamp(24px,3.2vw,32px);margin:8px 0 4px}
   .hero-copy p{margin-bottom:12px;font-size:15px}
   .btn-hero{height:42px;font-size:15px}
