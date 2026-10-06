@@ -120,7 +120,6 @@ svg{flex:none}
 .hero-track{display:flex;transition:transform .7s var(--ease);touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
 .hero-track.dragging{transition:none;cursor:grabbing}
 .hero-track img{-webkit-user-drag:none}
-.hero-track{transition:transform .7s var(--ease),height .45s var(--ease)}
 /* Las diapositivas tienen la proporción de los avisos (2560×981): se ven completos */
 .hero-slide{min-width:100%;aspect-ratio:2560/981;position:relative;overflow:hidden}
 .hero-main{background:
@@ -140,6 +139,7 @@ svg{flex:none}
 .btn-hero:hover{background:var(--navy)}
 .btn-hero .ic{width:22px;height:22px}
 .hero-art{width:100%;height:100%;max-height:100%;object-fit:contain;object-position:right bottom;mix-blend-mode:multiply;align-self:end;padding:20px 5% 0 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%),linear-gradient(180deg,transparent,#000 10%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 8%),linear-gradient(180deg,transparent,#000 10%);mask-composite:intersect}
+.hero-banner{display:none}
 .hero-img{background:#fff}
 .hero-img img{width:100%;height:100%;object-fit:contain;object-position:center}
 /* Los puntos van dentro de la imagen, en la esquina inferior derecha, para que el
@@ -388,13 +388,13 @@ a:hover>.go{transform:translateX(3px)}
   .nav-links{top:68px}
   .logo b{font-size:18px}
   .logo-badge{width:46px;height:46px}
-  .hero-track{align-items:flex-start}
+  /* Las tres diapositivas miden igual: la primera muestra el aviso del cronograma */
   .hero-slide{height:auto}
-  .hero-main{aspect-ratio:auto}
-  .hero-main .hero-inner{grid-template-columns:1fr;padding:28px 0 36px;gap:8px}
-  .hero-copy{padding:0}
-  .hero-art{max-height:170px;padding:0}
-  .hero-main::after{display:none}
+  .hero-main{background:#fff}
+  .hero-main::before,.hero-main::after{display:none}
+  .hero-main .hero-inner{display:none}
+  .hero-banner{display:block;width:100%;height:100%}
+  .hero-banner img{width:100%;height:100%;object-fit:contain}
   .hero-img{aspect-ratio:2560/981}
   .row-3,.row-2,.news-grid,.loc{grid-template-columns:1fr}
   .loc-map{min-height:220px}
